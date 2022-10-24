@@ -29,7 +29,10 @@ Aliases: `jevko.decode`, `jevko.fromString`.
 Turns a string into a Jevko parse tree, e.g.:
 
 ```lua
-jevko.decode("a [b]")
+jevko.from_string([=[
+id [10]
+colors [[red][yellow][blue]]
+]=])
 ```
 
 returns
@@ -37,9 +40,17 @@ returns
 ```lua
 {
   subjevkos = {
-    {prefix = "a ", jevko = {subjevkos = {}, suffix = "b"}}
-  }, 
-  suffix = ""
+    {prefix = "id ", jevko = {subjevkos = {}, suffix = "10"}},
+    {prefix = "\ncolors ", jevko = {
+      subjevkos = {
+        {prefix = "", jevko = {subjevkos = {}, suffix = "red"}},
+        {prefix = "", jevko = {subjevkos = {}, suffix = "yellow"}},
+        {prefix = "", jevko = {subjevkos = {}, suffix = "blue"}},
+      },
+      suffix = ""
+    }},
+  },
+  suffix = "\n"
 }
 ```
 
@@ -47,21 +58,33 @@ returns
 
 Aliases: `jevko.encode`, `jevko.toString`.
 
+Inverse of [`jevko.from_string`](#jevkofrom_stringstr).
+
 Serializes a Jevko parse tree into a string, e.g.:
 
 ```lua
-jevko.encode({
+jevko.to_string({
   subjevkos = {
-    {prefix = "a ", jevko = {subjevkos = {}, suffix = "b"}}
-  }, 
-  suffix = ""
+    {prefix = "id ", jevko = {subjevkos = {}, suffix = "10"}},
+    {prefix = "\ncolors ", jevko = {
+      subjevkos = {
+        {prefix = "", jevko = {subjevkos = {}, suffix = "red"}},
+        {prefix = "", jevko = {subjevkos = {}, suffix = "yellow"}},
+        {prefix = "", jevko = {subjevkos = {}, suffix = "blue"}},
+      },
+      suffix = ""
+    }},
+  },
+  suffix = "\n"
 })
 ```
 
-returns
+returns the string
 
-```lua
-"a [b]"
+```
+id [10]
+colors [[red][yellow][blue]]
+
 ```
 
 ## jevko.escape(str)
