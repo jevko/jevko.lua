@@ -1,3 +1,25 @@
+-- jevko.lua
+
+-- Copyright (c) 2022 Darius J Chuck
+
+-- Permission is hereby granted, free of charge, to any person obtaining a copy
+-- of this software and associated documentation files (the "Software"), to deal
+-- in the Software without restriction, including without limitation the rights
+-- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+-- copies of the Software, and to permit persons to whom the Software is
+-- furnished to do so, subject to the following conditions:
+
+-- The above copyright notice and this permission notice shall be included in all
+-- copies or substantial portions of the Software.
+
+-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+-- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+-- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+-- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+-- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+-- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+-- SOFTWARE.
+
 local jevko = { _version = "0.1.0" }
 
 local escaper = "`"
@@ -71,44 +93,6 @@ local function escape(str)
   return ret
 end
 
-local function escape_prefix(prefix)
-  if prefix == "" then
-    return ""
-  else
-    return escape(prefix).." "
-  end
-end
-
-local function recur(jevko, indent, prevIndent)
-  local subjevkos = jevko.subjevkos
-  local ret = ""
-  
-  if #subjevkos > 0 then
-    ret = ret.."\n"
-    for _, v in ipairs(subjevkos) do
-      local prefix = v.prefix
-      local jevko = v.jevko
-      ret = ret..indent..escape_prefix(prefix).."["..recur(jevko, indent.."  ", indent).."]\n"
-    end
-    ret = ret..prevIndent
-  end
-
-  return ret .. escape(jevko.suffix)
-end
-
-local function stringify_jevko_pretty(jevko, indent)
-  local subjevkos = jevko.subjevkos
-  local suffix = jevko.suffix
-
-  local ret = ""
-  for _, v in ipairs(subjevkos) do
-    local prefix = v.prefix
-    local jevko = v.jevko
-    ret = ret..escape_prefix(prefix).."["..recur(jevko, "  ", "").."]\n"
-  end
-  return ret..escape(suffix)
-end
-
 local function stringify_jevko(jevko)
   local subjevkos = jevko.subjevkos
 
@@ -122,7 +106,13 @@ local function stringify_jevko(jevko)
 end
 
 jevko.decode = parse_jevko
+jevko.from_string = parse_jevko
+jevko.fromString = parse_jevko
+
 jevko.encode = stringify_jevko
-jevko.encode_pretty = stringify_jevko_pretty
+jevko.to_string = stringify_jevko
+jevko.toString = stringify_jevko
+
+jevko.escape = escape
 
 return jevko

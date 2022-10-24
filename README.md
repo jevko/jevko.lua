@@ -1,22 +1,84 @@
+![jevko.lua logo](logo.svg)
+
 # jevko.lua
 
-A Jevko library for Lua.
+A single-file [Jevko](https://jevko.org) library for Lua. Inspired by [rxi/json.lua](https://github.com/rxi/json.lua).
+
+Encodes and decodes plain Jevko.
 
 # Features
 
+* Simple
+* Lightweight: ~3 KiB, < 100 SLOC
+* Error messages with `line:column` information, e.g. `Invalid digraph (x) at 1:10!`
+
 # Usage
+
+Copy the [jevko.lua](jevko.lua?raw=1) file into your project and require it:
 
 ```lua
 jevko = require "jevko"
 ```
 
-# Functions
+You can now use the following functions:
 
-## jevko.decode(value)
+## jevko.from_string(str)
 
-## jevko.encode(value)
+Aliases: `jevko.decode`, `jevko.fromString`.
 
-## jevko.encode_pretty(value)
+Turns a string into a Jevko parse tree, e.g.:
+
+```lua
+jevko.decode("a [b]")
+```
+
+returns
+
+```lua
+{
+  subjevkos = {
+    {prefix = "a ", jevko = {subjevkos = {}, suffix = "b"}}
+  }, 
+  suffix = ""
+}
+```
+
+## jevko.to_string(jev)
+
+Aliases: `jevko.encode`, `jevko.toString`.
+
+Serializes a Jevko parse tree into a string, e.g.:
+
+```lua
+jevko.encode({
+  subjevkos = {
+    {prefix = "a ", jevko = {subjevkos = {}, suffix = "b"}}
+  }, 
+  suffix = ""
+})
+```
+
+returns
+
+```lua
+"a [b]"
+```
+
+## jevko.escape(str)
+
+A helper function which can be used with custom Jevko encoders.
+
+Turns a string into a Jevko-safe string by escaping special characters, e.g.:
+
+```lua
+jevko.escape("Only these three are special: ` [ ]")
+```
+
+returns
+
+```lua
+"Only these three are special: `` `[ `]"
+```
 
 # License
 

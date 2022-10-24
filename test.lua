@@ -1,7 +1,5 @@
 local jevko = loadfile("./jevko.lua")()
 
-
-
 local parsed = jevko.decode([[
 first name [John]
 last name [Smith]
