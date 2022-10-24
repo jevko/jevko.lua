@@ -31,7 +31,11 @@ Turns a string into a Jevko parse tree, e.g.:
 ```lua
 jevko.from_string([=[
 id [10]
-colors [[red][yellow][blue]]
+colors [
+  [red]
+  [yellow]
+  [blue]
+]
 ]=])
 ```
 
@@ -43,11 +47,11 @@ returns
     {prefix = "id ", jevko = {subjevkos = {}, suffix = "10"}},
     {prefix = "\ncolors ", jevko = {
       subjevkos = {
-        {prefix = "", jevko = {subjevkos = {}, suffix = "red"}},
-        {prefix = "", jevko = {subjevkos = {}, suffix = "yellow"}},
-        {prefix = "", jevko = {subjevkos = {}, suffix = "blue"}},
+        {prefix = "\n  ", jevko = {subjevkos = {}, suffix = "red"}},
+        {prefix = "\n  ", jevko = {subjevkos = {}, suffix = "yellow"}},
+        {prefix = "\n  ", jevko = {subjevkos = {}, suffix = "blue"}},
       },
-      suffix = ""
+      suffix = "\n"
     }},
   },
   suffix = "\n"
@@ -68,11 +72,11 @@ jevko.to_string({
     {prefix = "id ", jevko = {subjevkos = {}, suffix = "10"}},
     {prefix = "\ncolors ", jevko = {
       subjevkos = {
-        {prefix = "", jevko = {subjevkos = {}, suffix = "red"}},
-        {prefix = "", jevko = {subjevkos = {}, suffix = "yellow"}},
-        {prefix = "", jevko = {subjevkos = {}, suffix = "blue"}},
+        {prefix = "\n  ", jevko = {subjevkos = {}, suffix = "red"}},
+        {prefix = "\n  ", jevko = {subjevkos = {}, suffix = "yellow"}},
+        {prefix = "\n  ", jevko = {subjevkos = {}, suffix = "blue"}},
       },
-      suffix = ""
+      suffix = "\n"
     }},
   },
   suffix = "\n"
@@ -83,7 +87,11 @@ returns the string
 
 ```
 id [10]
-colors [[red][yellow][blue]]
+colors [
+  [red]
+  [yellow]
+  [blue]
+]
 
 ```
 
