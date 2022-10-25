@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="206.65mm" height="26.25mm" version="1.1" viewBox="0 0 206.65 26.25" xmlns="http://www.w3.org/2000/svg">
+<svg width="209.14mm" height="27.254mm" version="1.1" viewBox="0 0 209.14 27.254" xmlns="http://www.w3.org/2000/svg">
  <defs>
   <filter id="a" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB">
    <feColorMatrix result="color1" type="hueRotate" values="180"/>
    <feColorMatrix result="color2" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 -0.21 -0.72 -0.07 2 0 "/>
   </filter>
  </defs>
- <g transform="matrix(.5 0 0 .5 -69.056 -28.587)" stroke-width="2">
-  <g transform="translate(-138.94 -87.394)" filter="url(#a)" stroke-width="2">
+ <g transform="matrix(.5 0 0 .5 -69.055 -28.123)">
+  <g transform="translate(-138.94,-87.394)" filter="url(#a)" stroke-width="2">
    <circle cx="303.3" cy="170.82" r="26.25" stroke-linecap="square" stroke-opacity=".99608" stroke-width="2.1167"/>
   </g>
-  <circle transform="translate(-138.94 -87.394)" cx="303.3" cy="170.82" r="25" fill="#fff" filter="url(#a)" stroke-linecap="square" stroke-opacity=".99608" stroke-width="2.1167"/>
-  <circle transform="translate(-138.94 -87.394)" cx="303.3" cy="170.82" r="20" filter="url(#a)" stroke-linecap="square" stroke-opacity=".99608" stroke-width="2.1167"/>
-  <path transform="matrix(1.089 0 0 1 -165.93 -87.394)" d="m300.8 173.71v18.008h5v-18.393l-5 0.38466z" fill="#fff" filter="url(#a)"/>
-  <g transform="matrix(1.04 0 0 1.04 -6.5745 -4.3509)" stroke-width="1.9231">
-   <g transform="translate(0 -.52917)" stroke-opacity=".99608" stroke-width="1.5264">
-    <path d="m154.61 94.318 9.7858-16.949 9.7274 16.949h-19.513z"/>
-    <path d="m157.92 85.556 6.4586-11.186 6.4201 11.186h-12.879z"/>
-    <path d="m160.11 78.752s4.2627-7.383 4.2627-7.383 4.2372 7.383 4.2372 7.383h-8.4999z"/>
-   </g>
-  </g>
+  <circle transform="translate(-138.94,-87.394)" cx="303.3" cy="170.82" r="25" fill="#fff" filter="url(#a)" stroke-linecap="square" stroke-opacity=".99608" stroke-width="2.1167"/>
+  <path transform="translate(-138.94,-87.394)" d="m303.3 150.82a20 20 0 0 0-20 20 20 20 0 0 0 17.278 19.795v-10.03h-7.4238l5.2617-9.1126h-1.8118l4.0855-7.0755h-1.8087l4.4328-7.6781 4.407 7.6781h-1.7839l4.0607 7.0755h-1.7797l5.2297 9.1126h-7.4238v10.03a20 20 0 0 0 17.278-19.795 20 20 0 0 0-20.001-20z" filter="url(#a)" stroke-linecap="square" stroke-opacity=".99608" stroke-width="2.1167"/>
  </g>
- <text x="28.598253" y="19.893717" font-family="sans-serif" font-size="25.4px" stroke-width=".8" style="line-height:1.25" xml:space="preserve"><tspan x="28.598253" y="19.893717" font-family="serif" font-weight="bold" stroke="#ffffff" stroke-width=".8">jevko.lua</tspan></text>
+ <text x="28.59926" y="20.358" font-family="sans-serif" font-size="25.4px" stroke-width="1.6" style="line-height:1.25;paint-order:stroke fill markers" xml:space="preserve"><tspan x="28.59926" y="20.358" font-family="serif" font-weight="bold" stroke="#ffffff" stroke-width="1.6" style="paint-order:stroke fill markers">jevko.lua</tspan></text>
 </svg>
