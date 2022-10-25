@@ -1,4 +1,4 @@
-local jevko = loadfile("./jevko.lua")()
+local jevko = require "jevko"
 
 function test(name, fn)
   xpcall(function()
