@@ -111,6 +111,10 @@ returns the string
 Only these three are special: `` `[ `]
 ```
 
+# See also
+
+[easyjevko.lua](https://github.com/jevko/easyjevko.lua) -- a library for Easy Jevko, a simple format built on Jevko.
+
 # License
 
 [MIT](LICENSE)
