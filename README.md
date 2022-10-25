@@ -105,10 +105,10 @@ Turns a string into a Jevko-safe string by escaping special characters, e.g.:
 jevko.escape("Only these three are special: ` [ ]")
 ```
 
-returns
+returns the string
 
-```lua
-"Only these three are special: `` `[ `]"
+```
+Only these three are special: `` `[ `]
 ```
 
 # License
