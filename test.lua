@@ -1,5 +1,16 @@
 local jevko = loadfile("./jevko.lua")()
 
+function test(name, fn)
+  xpcall(function()
+    io.write("Running test ["..name.."]... ")
+    fn()
+    print("passed!")
+  end,
+  function(err)
+    print("failed!\nError: "..err)
+  end)
+end
+
 local parsed = jevko.decode([[
 first name [John]
 last name [Smith]
@@ -33,5 +44,13 @@ local expected = [[
   postal code [10021-3100]
 ]]
 
-local actual = jevko.encode(parsed.subjevkos[5].jevko)
-assert(actual == expected, actual)
+test('escapes', function() 
+  local t = jevko.from_string("  ````aaa`[bbb`]`]ccc``  ")
+  assert(t.suffix == "  ``aaa[bbb]]ccc`  ", t.suffix)
+  assert(jevko.from_string("  ````aaa`[bbb`]`]ccc``  []").subjevkos[1].prefix == "  ``aaa[bbb]]ccc`  ")
+end)
+
+test('roundtrip', function()
+  local actual = jevko.encode(parsed.subjevkos[5].jevko)
+  assert(actual == expected, actual)
+end)
