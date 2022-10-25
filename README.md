@@ -10,7 +10,7 @@ Encodes and decodes plain Jevko.
 
 * Simple
 * Lightweight: ~3 KiB, < 100 SLOC
-* Error messages with `line:column` information, e.g. `Invalid digraph (x) at 1:10!`
+* Error messages with `line:column` information, e.g. `` Invalid digraph (`x) at 1:10! ``
 
 # Usage
 
